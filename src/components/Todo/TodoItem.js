@@ -30,7 +30,7 @@ const TodoItem = ({ todo, onToggle, onDelete, onEdit, editingTodo, setEditingTod
 
   return (
     <li className={`flex items-center justify-between p-4 rounded shadow ${todo.complete ? "bg-green-200" : "bg-white"}`}>
-      <div className="flex items-center flex-1 cursor-pointer">
+      <div className="flex items-center flex-1 cursor-pointer" onClick={onToggle}>
         <input 
           type="checkbox" 
           checked={todo.complete} 
@@ -43,7 +43,7 @@ const TodoItem = ({ todo, onToggle, onDelete, onEdit, editingTodo, setEditingTod
             value={editText}
             onChange={(e) => setEditText(e.target.value)}
             onKeyDown={handleKeyPress}
-            className="border border-gray-300 p-2 rounded flex-1 mr-2 focus:outline-none focus:border-blue-500"
+            className="flex-1 p-2 mr-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
             autoFocus
           />
         ) : (
@@ -52,18 +52,18 @@ const TodoItem = ({ todo, onToggle, onDelete, onEdit, editingTodo, setEditingTod
           </span>
         )}
       </div>
-      <div className="actions flex gap-2 ml-2">
+      <div className="flex gap-2 ml-2 actions">
         {editingTodo === todo.id ? (
           <>
             <button 
               onClick={saveEdit} 
-              className="px-3 py-1 text-sm bg-green-500 text-white rounded hover:bg-green-600 transition-colors"
+              className="px-3 py-1 text-sm text-white transition-colors bg-green-500 rounded hover:bg-green-600"
             >
               Save
             </button>
             <button 
               onClick={cancelEdit} 
-              className="px-3 py-1 text-sm bg-gray-500 text-white rounded hover:bg-gray-600 transition-colors"
+              className="px-3 py-1 text-sm text-white transition-colors bg-gray-500 rounded hover:bg-gray-600"
             >
               Cancel
             </button>
@@ -72,14 +72,14 @@ const TodoItem = ({ todo, onToggle, onDelete, onEdit, editingTodo, setEditingTod
           <>
             <button 
               onClick={startEdit} 
-              className="px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600 disabled:bg-gray-500 disabled:cursor-not-allowed transition-colors"
+              className="px-3 py-1 text-sm text-white transition-colors bg-blue-500 rounded hover:bg-blue-600 disabled:bg-gray-500 disabled:cursor-not-allowed"
               disabled={todo.complete}
             >
               Edit
             </button>
             <button 
               onClick={onDelete} 
-              className="px-3 py-1 text-sm bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
+              className="px-3 py-1 text-sm text-white transition-colors bg-red-500 rounded hover:bg-red-600"
             >
               Delete
             </button>
