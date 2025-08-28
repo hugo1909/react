@@ -7,11 +7,12 @@ const Navigation = () => {
   const navItems = [
     { path: '/', label: 'Home' },
     { path: '/todos', label: 'Todos' },
-    { path: '/about', label: 'About' }
+    { path: '/about', label: 'About' },
+    { path: '/weather', label: 'Weather' }
   ];
 
   return (
-    <nav className="bg-white shadow-md rounded-lg mb-6">
+    <nav className="mb-6 bg-white rounded-lg shadow-md">
       <div className="px-6 py-4">
         <div className="flex space-x-6">
           {navItems.map((item) => (

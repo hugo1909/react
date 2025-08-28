@@ -82,27 +82,25 @@ const TodoApp = () => {
 
   if (loading) {
     return (
-      <div className="bg-white rounded-lg shadow-lg p-6">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto"></div>
+          <div className="w-12 h-12 mx-auto border-b-2 border-blue-500 rounded-full animate-spin"></div>
           <p className="mt-4 text-gray-600">Loading todos...</p>
         </div>
-      </div>
     );
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-6">
-      <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
+    <div className="max-w-3xl mx-auto">
+      <h1 className="mb-8 text-3xl font-bold text-center text-gray-800">
         Todo App
         {operationLoading && (
-          <span className="ml-2 inline-block animate-spin rounded-full h-4 w-4 border-b-2 border-blue-500"></span>
+          <span className="inline-block w-4 h-4 ml-2 border-b-2 border-blue-500 rounded-full animate-spin"></span>
         )}
       </h1>
 
       {/* Error Display */}
       {error && (
-        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6 flex justify-between items-center">
+        <div className="flex items-center justify-between px-4 py-3 mb-6 text-red-700 bg-red-100 border border-red-400 rounded">
           <span>{error}</span>
           <button onClick={dismissError} className="text-red-700 hover:text-red-900">
             ✕
@@ -112,8 +110,8 @@ const TodoApp = () => {
 
       {/* Statistics */}
       {totalTodos > 0 && (
-        <div className="bg-gray-50 rounded-lg p-4 mb-6">
-          <h3 className="text-lg font-semibold text-gray-700 mb-2">Statistics</h3>
+        <div className="p-4 mb-6 rounded-lg bg-gray-50">
+          <h3 className="mb-2 text-lg font-semibold text-gray-700">Statistics</h3>
           <div className="grid grid-cols-3 gap-4 text-center">
             <div>
               <p className="text-2xl font-bold text-blue-500">{totalTodos}</p>
@@ -144,25 +142,25 @@ const TodoApp = () => {
 
       {/* Action Buttons */}
       {totalTodos > 0 && (
-        <div className="mt-6 pt-4 border-t border-gray-200">
-          <div className="flex flex-wrap gap-3 justify-center">
+        <div className="pt-4 mt-6 border-t border-gray-200">
+          <div className="flex flex-wrap justify-center gap-3">
             <button
               onClick={refreshTodos}
-              className="px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-colors text-sm font-medium"
+              className="px-4 py-2 text-sm font-medium text-white transition-colors bg-purple-500 rounded-lg hover:bg-purple-600"
             >
               🔄 Refresh
             </button>
             {completedTodos > 0 && (
               <button
                 onClick={handleClearCompleted}
-                className="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors text-sm font-medium"
+                className="px-4 py-2 text-sm font-medium text-white transition-colors bg-orange-500 rounded-lg hover:bg-orange-600"
               >
                 Clear Completed ({completedTodos})
               </button>
             )}
             <button
               onClick={handleClearAll}
-              className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors text-sm font-medium"
+              className="px-4 py-2 text-sm font-medium text-white transition-colors bg-red-500 rounded-lg hover:bg-red-600"
             >
               Clear All
             </button>
@@ -173,7 +171,7 @@ const TodoApp = () => {
       {/* Empty state */}
       {totalTodos === 0 && !loading && (
         <div className="mt-6 text-center">
-          <p className="text-gray-500 mb-4">No todos yet. Add one above!</p>
+          <p className="mb-4 text-gray-500">No todos yet. Add one above!</p>
         </div>
       )}
 
