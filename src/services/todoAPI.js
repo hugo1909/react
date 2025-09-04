@@ -5,7 +5,8 @@ const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://jsonplaceholder.t
 
 // API endpoints
 const ENDPOINTS = {
-  TODOS: '/todos'
+  TODOS: '/todos',
+  TODO: (id) => `/todos/${id}`
 };
 
 // Helper function to handle API responses
